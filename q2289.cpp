@@ -32,7 +32,7 @@ int main() {
     for (int i = 1; i <= m; ++i) {
         int x, y, l; scanf("%d%d%d", &x, &y, &l);
         d[x][y] = d[y][x] = l;
-        G[x].emplace_back(y, l, i), G[y].emplace_bakc(x, l, i);
+        G[x].emplace_back(y, l, i), G[y].emplace_back(x, l, i);
     }
     for (int i = 1; i <= n; ++i)
         for (int j = 1; j <= n; ++j)
@@ -58,7 +58,7 @@ int main() {
         memset(vis, 0, sizeof(int) * (n + 1));
         v.clear(); dfs2(t, id);
         ll mxd = 0, cur = 0;
-        for (int y : v) mxd = max(mxd, d[t][y]);
+        for (int y : v) mxd = std::max(mxd, d[t][y]);
         for (int y : v) if (mxd == d[t][y]) cur = std::max(cur, mxd + dp[y]);
         res = std::min(res, d[p][t] + cur);
     }
